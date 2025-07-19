@@ -17,7 +17,6 @@ def main():
         print("Error, no prompt argument given")
         return 1
 
-
     messages = [
         types.Content(role="user", parts=[types.Part(text=user_prompt)])
     ]
@@ -26,14 +25,12 @@ def main():
         model="gemini-2.0-flash-001", 
         contents=messages
         )
- 
+
     # Flags
-    if len(sys.argv) > 2:
-        match sys.argv[2]:
-            case "--verbose":
-                print(f"User prompt: {user_prompt}")
-                print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
-                print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
+    if "--verbose" in sys.argv:
+        print(f"User prompt: {user_prompt}")
+        print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
+        print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
 
     print(f"\n{response.text}")
     
