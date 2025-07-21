@@ -33,6 +33,7 @@ def main():
         print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
 
     print(f"\n{response.text}")
+
     
 
 if __name__ == "__main__":
