@@ -15,6 +15,8 @@ def get_file_content(working_directory, file_path):
     with open(full_path, "r") as f:
         file_content_string = f.read()
 
+        # Might not be too safe, maybe only read MAX_CHARS
+        # and append the message if len == MAX_CHARS
         if len(file_content_string) > MAX_CHARS:
             return file_content_string[:MAX_CHARS] + f"\n[...File '{file_path}' truncated at {MAX_CHARS} characters]"
         else:
