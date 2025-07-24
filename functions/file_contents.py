@@ -8,7 +8,7 @@ def get_file_content(working_directory, file_path):
         return f"Error: Cannot read '{file_path}' as it is outside the permitted working directory"
 
     if exists_or_is_file(full_path) == False:
-        return f"Error: File not found or is not a regular file: '{file_path}'" 
+       return f"Error: File {file_path} not found"
     
     file_content_string = ""
 
